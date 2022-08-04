@@ -20,34 +20,26 @@
 
 <canvas id="c"></canvas>
 
-<audio id="music1" controls="controls" autoplay="autoplay" preload id="music1" hidden>
+<audio id="bgmusic" controls="controls" autoplay="autoplay" preload id="music1" hidden>
     <source src="music/慢慢.m4a" />
 </audio>
 
-<img id="btn" class="active"  alt="" />
-
-
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
-    var audio = document.getElementById('music1');
-    $("#btn").bind("touchstart", function bf() {
-        if(audio !== null) {
-//检测播放是否已暂停.audio.paused 在播放器播放时返回false.
-//alert(audio.paused);
-            if(audio.paused) {
-                audio.play(); //audio.play();// 这个就是播放
-                $("#btn").addClass("active")
-            } else {
-                audio.pause(); // 这个就是暂停
-                $("#btn").removeClass("active")
-            }
-        }
-    })
-
-    $("html").one('touchstart',function(){
-        audio.play();
-    })
-
-
+    function autoPlayAudio1() {
+        wx.config({
+            debug: false,
+            appId: '',
+            timestamp: 1,
+            nonceStr: '',
+            signature: '',
+            jsApiList: []
+        });
+        wx.ready(function() {
+            document.getElementById('bgmusic').play();
+        });
+    }
+    autoPlayAudio1();
 </script>
 
 
