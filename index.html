@@ -1,14 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style type="text/css">
+
+        audio{
+
+            display: none;
+
+        }
+
+    </style>
     <meta charset="UTF-8">
     <title>给我喜欢的月亮</title>
 
+
+
 </head>
 <body>
+<!--<audio id="bg-music" autoplay="autoplay" controls="controls"loop="loop" preload="auto"-->
+
+<!--       src="music/慢慢.m4a">-->
+
+
+<!--</audio>-->
 <canvas id="c"></canvas>
 
-<p style="text-align: center; color: red"><strong>送你一朵小红花，无论以后发生什么都希望你快乐 </strong></p><br>
+<div class="musicinfo" id="musicinfo">
+    <audio id="musicid" src="music/慢慢.m4a" preload="preload" autoplay="autoplay"  loop="loop"></audio>
+</div>
+<script>
+    document.addEventListener('music/慢慢.m4a', function () {
+        function audioAutoPlay() {
+            var audio = document.getElementById(' musicid ');
+            audio.play();
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                audio.play();
+            }, false);
+        }
+        audioAutoPlay();
+    });
+</script>
+
+
+<p style="text-align: center; color: red"><strong>七夕送你一朵小红花，希望你快乐 </strong></p><br>
 <footer><p style="text-align: center"> <strong><a href="https://loveheart.vercel.app/">Made for Moon, made by CC</a></strong>  </p></footer>
 
 <script type="text/javascript">
@@ -55,6 +89,8 @@
         'for(i=0;i<1e4;i++)if(s=p(R(),R(),i%46/.74)){z=s[2];x=~~(s[0]*f/z-h);y=~~(s[1]*f/z-h);if(!m[q=y*f+x]|m[q]>z)m[q]=z,a.fillStyle="rgb("+~(s[3]*h)+","+~(s[4]*h)+","+~(s[3]*s[3]*-80)+")",a.fillRect(x,y,1,1)}',
         0)
 </script>
+
+
 
 </body>
 </html>
