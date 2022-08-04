@@ -17,28 +17,37 @@
 
 </head>
 <body>
-<!--<audio id="bg-music" autoplay="autoplay" controls="controls"loop="loop" preload="auto"-->
 
-<!--       src="music/慢慢.m4a">-->
-
-
-<!--</audio>-->
 <canvas id="c"></canvas>
 
-<div class="musicinfo" id="musicinfo">
-    <audio id="musicid" src="music/慢慢.m4a" preload="preload" autoplay="autoplay"  loop="loop"></audio>
-</div>
+<audio id="music1" controls="controls" autoplay="autoplay" preload id="music1" hidden>
+    <source src="music/慢慢.m4a" />
+</audio>
+
+<img id="btn" class="active" src="img/music.png" alt="" />
+
+
 <script>
-    document.addEventListener('music/慢慢.m4a', function () {
-        function audioAutoPlay() {
-            var audio = document.getElementById(' musicid ');
-            audio.play();
-            document.addEventListener("WeixinJSBridgeReady", function () {
-                audio.play();
-            }, false);
+    var audio = document.getElementById('music1');
+    $("#btn").bind("touchstart", function bf() {
+        if(audio !== null) {
+//检测播放是否已暂停.audio.paused 在播放器播放时返回false.
+//alert(audio.paused);
+            if(audio.paused) {
+                audio.play(); //audio.play();// 这个就是播放
+                $("#btn").addClass("active")
+            } else {
+                audio.pause(); // 这个就是暂停
+                $("#btn").removeClass("active")
+            }
         }
-        audioAutoPlay();
-    });
+    })
+
+    $("html").one('touchstart',function(){
+        audio.play();
+    })
+
+
 </script>
 
 
